@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Rules & Pods | Board-Wipe n.e.V.</title>
+  
+  <meta name="description" content="Board-Wipe Magic the Gathering Club Rules and Pod Information.">
+  <meta name="author" content="Board-Wipe n.e.V.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Meta Tags for Social Media -->
+  <meta property="og:url" content="https://board-wipe.com/rules.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rules & Pods | Board-Wipe n.e.V.">
+  <meta property="og:description" content="Learn about our Magic the Gathering pod rules and formats.">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="littlelink/css/normalize.css">
+  <link rel="stylesheet" href="littlelink/css/animate.css">
+  <link rel="icon" href="images/boardwipe-logo.png">
+  
+  <link rel="stylesheet" href="themes/mono/share.button.css">
+  <link rel="stylesheet" href="themes/mono/brands.css">
+  <link rel="stylesheet" href="themes/mono/skeleton-auto.css">
+  <link rel="stylesheet" href="littlelink/css/animations.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Custom MTG Theme -->
+  <link rel="stylesheet" href="css/custom-theme.css">
+
+  <style>.container{word-break: break-word;}</style>
+</head>
+
+<body>
+
+    <!-- Skip to main content for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-list">
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="rules.html"><i class="fas fa-scroll"></i> Rules & Pod</a></li>
+        <li><a href="partners.html"><i class="fas fa-handshake"></i> Partners</a></li>
+        <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById('mobile-menu');
+            const navList = document.querySelector('.navbar ul');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    navList.classList.toggle('active');
+                });
+            }
+
+            // Back to Top Button
+            const backToTopButton = document.getElementById("backToTop");
+
+            if (backToTopButton) {
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        backToTopButton.style.display = "block";
+                    } else {
+                        backToTopButton.style.display = "none";
+                    }
+                }
+
+                backToTopButton.addEventListener("click", function() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                });
+            }
+
+            // Create Floating Particles
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer) {
+                const particleCount = 30;
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                    particle.style.animationDelay = (Math.random() * 20) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            // Scroll Reveal Animation
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        setTimeout(() => {
+                            entry.target.classList.add('animation-complete');
+                        }, 600);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fadein, .service-card, .partner-card, .gallery-item').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', () => img.classList.add('loaded'));
+                }
+            });
+        });
+    </script>
+
+    <button id="backToTop" title="Go to top"><i class="fas fa-rocket"></i></button>
+
+  <div class="container" id="parallax-bg">
+      <div id="object1" class="object1"></div>
+      <div id="object2" class="object2"></div>
+      <div id="object3" class="object3"></div>
+      <div id="object4" class="object4"></div>
+      <div id="object5" class="object5"></div>
+      <div id="object6" class="object6"></div>
+      <div id="object7" class="object7"></div>
+      <div id="object8" class="object8"></div>
+      <div id="object9" class="object9"></div>
+      <div id="object10" class="object10"></div>
+      <div id="object11" class="object11"></div>
+      <div id="object12" class="object12"></div>
+  </div>
+
+  <div class="container" id="main">
+    <div class="row">
+      <div class="column" style="margin-top: 5%">
+        
+        <!-- PAGE HEADER -->
+        <div class="hero-card fadein">
+            <center>
+                <h1 data-text="RULES & PODS">RULES & PODS</h1>
+                <p style="font-size: 1.1rem; color: var(--secondary-accent);">
+                    // THE FOUNDATION OF OUR PLAY <br>
+                    // FAIR COMPETITION & FUN
+                </p>
+            </center>
+        </div>
+
+        <!-- RULES SECTION -->
+        <section class="fadein" style="margin: 40px 0;">
+            <h2>Pod System Rules</h2>
+            <p>Board-Wipe operates on a friendly but structured pod system. Here's what you need to know:</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 style="color: var(--accent-color)"><i class="fas fa-handshake"></i> Core Rule #1</h3>
+                    <p><strong>Respect & Inclusivity:</strong> All players are welcome regardless of skill level. We maintain a welcoming environment for everyone from beginners to competitive players.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 style="color: var(--secondary-accent)"><i class="fas fa-chess"></i> Core Rule #2</h3>
+                    <p><strong>Fair Play:</strong> No cheating, collusion, or unfair advantage. We follow official MTG rules of conduct. Violations result in warnings and potential removal.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 style="color: var(--tech-blue)"><i class="fas fa-users-cog"></i> Core Rule #3</h3>
+                    <p><strong>Pod Rotation:</strong> Pods rotate regularly to ensure everyone plays with different opponents and experiences variety in the meta.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3 style="color: var(--accent-color)"><i class="fas fa-hourglass-end"></i> Core Rule #4</h3>
+                    <p><strong>Time Management:</strong> Games have time limits. Casual play: 50 minutes. Competitive: 60 minutes. Please be punctual and play at a reasonable pace.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMATS SECTION -->
+        <section class="fadein" style="margin: 40px 0;">
+            <h2>Supported Formats</h2>
+            <p>We support various Magic formats to keep gameplay fresh and engaging:</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-stars"></i> Standard</h3>
+                    <p>Using only recently released sets. Perfect for staying current with the meta and official tournament formats.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-infinity"></i> Commander / EDH</h3>
+                    <p>Our most popular casual format! 100-card singleton decks. Multiplayer pod play (3-4 players per pod).</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-layer-group"></i> Limited</h3>
+                    <p>Draft and Sealed events. Build decks from limited card pools. Great for new players and learning!</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-book-open"></i> Modern & Pioneer</h3>
+                    <p>Constructed formats with larger card pools. Available by request for dedicated competitive players.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- POD STRUCTURE -->
+        <section class="fadein" style="margin: 40px 0;">
+            <h2>How Our Pods Work</h2>
+            
+            <div style="background: rgba(157, 78, 221, 0.1); border-left: 4px solid var(--accent-color); padding: 20px; margin: 20px 0; border-radius: 4px;">
+                <h3 style="color: var(--accent-color); margin-top: 0;"><i class="fas fa-cog"></i> Pod Formation</h3>
+                <p>Players are grouped into pods of 3-4 players. Each pod plays independently, and results are tracked for ranking and seasonal rewards.</p>
+            </div>
+
+            <div style="background: rgba(194, 125, 255, 0.1); border-left: 4px solid var(--secondary-accent); padding: 20px; margin: 20px 0; border-radius: 4px;">
+                <h3 style="color: var(--secondary-accent); margin-top: 0;"><i class="fas fa-medal"></i> Scoring System</h3>
+                <p><strong>Win-Based:</strong> Traditional win/loss records are kept. <strong>Points:</strong> Wins = 3 points, Draws = 1 point, Losses = 0 points. Players with the most points rank highest.</p>
+            </div>
+
+            <div style="background: rgba(114, 9, 183, 0.1); border-left: 4px solid var(--tech-blue); padding: 20px; margin: 20px 0; border-radius: 4px;">
+                <h3 style="color: var(--tech-blue); margin-top: 0;"><i class="fas fa-trophy"></i> Seasonal Rewards</h3>
+                <p>Top performers in each season receive recognition and potential prizes. All contributors earn store credit or promo cards at the end of each season.</p>
+            </div>
+        </section>
+
+        <!-- DECK BUILDING -->
+        <section class="fadein" style="margin: 40px 0;">
+            <h2>Deck Building Guidelines</h2>
+            
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0; color: var(--text-color);">
+                <tr style="background: rgba(157, 78, 221, 0.2); border-bottom: 2px solid var(--accent-color);">
+                    <th style="padding: 12px; text-align: left;">Format</th>
+                    <th style="padding: 12px; text-align: left;">Deck Size</th>
+                    <th style="padding: 12px; text-align: left;">Card Copies</th>
+                    <th style="padding: 12px; text-align: left;">Notes</th>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(157, 78, 221, 0.3);">
+                    <td style="padding: 12px;">Standard</td>
+                    <td style="padding: 12px;">Minimum 60 cards</td>
+                    <td style="padding: 12px;">Max 4 copies (except basics)</td>
+                    <td style="padding: 12px;">Uses current legal sets</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(157, 78, 221, 0.3);">
+                    <td style="padding: 12px;">Commander</td>
+                    <td style="padding: 12px;">Exactly 100 cards</td>
+                    <td style="padding: 12px;">1 copy only (singleton)</td>
+                    <td style="padding: 12px;">1 legendary creature as general</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(157, 78, 221, 0.3);">
+                    <td style="padding: 12px;">Limited</td>
+                    <td style="padding: 12px;">Minimum 40 cards</td>
+                    <td style="padding: 12px;">Build from provided pool</td>
+                    <td style="padding: 12px;">Draft or Sealed event</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px;">Modern</td>
+                    <td style="padding: 12px;">Minimum 60 cards</td>
+                    <td style="padding: 12px;">Max 4 copies (except basics)</td>
+                    <td style="padding: 12px;">Cards from Modern-legal sets</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- CONDUCT -->
+        <section class="fadein" style="margin: 40px 0;">
+            <h2>Player Conduct & Etiquette</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                <div style="background: rgba(76, 184, 96, 0.15); padding: 20px; border-radius: 4px; border: 1px solid rgba(76, 184, 96, 0.3);">
+                    <h4 style="color: #4cb860; margin-top: 0;"><i class="fas fa-check-circle"></i> DO:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Be respectful to all players</li>
+                        <li>Play at a reasonable pace</li>
+                        <li>Communicate clearly about game state</li>
+                        <li>Help newer players learn</li>
+                        <li>Report issues to organizers</li>
+                        <li>Have fun!</li>
+                    </ul>
+                </div>
+                
+                <div style="background: rgba(220, 53, 69, 0.15); padding: 20px; border-radius: 4px; border: 1px solid rgba(220, 53, 69, 0.3);">
+                    <h4 style="color: #dc3545; margin-top: 0;"><i class="fas fa-times-circle"></i> DON'T:</h4>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li>Cheat or bend rules</li>
+                        <li>Be disruptive or aggressive</li>
+                        <li>Angle shoot or mislead</li>
+                        <li>Use banned cards</li>
+                        <li>Ignore organizer rulings</li>
+                        <li>Play while intoxicated</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <div class="recruit-banner recruit-formal fadein" style="margin: 40px 0;">
+            <div class="recruit-content">
+                <div class="recruit-signal">
+                    <span class="signal-ping"></span>
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="recruit-info">
+                    <h3>Questions About Our Rules?</h3>
+                    <p>If you have any questions about our pod system, formats, or specific rulings, don't hesitate to reach out. Our organizers are here to help!</p>
+                </div>
+                <a href="index.html#contact" class="recruit-btn">
+                    <i class="fas fa-envelope"></i> ASK US
+                </a>
+            </div>
+        </div>
+
+        <br><br><br><br><br>
+
+        <div class="footer fadein" style="margin:5% 0px 35px 0px;">
+            <p>
+                &copy; 2025 Board-Wipe n.e.V. All rights reserved. | Magic: The Gathering is a trademark of Wizards of the Coast.
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

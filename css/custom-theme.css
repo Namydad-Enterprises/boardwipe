@@ -251,13 +251,13 @@ img:not([src]), img[src=""] {
 */
 
 :root {
-  /* Cowboy Bebop Palette */
-  --bg-color: #0e0e12; 
-  --text-color: #e0e0e0;
-  --accent-color: #ff3333; 
-  --secondary-accent: #ffcc00; 
-  --tech-blue: #3366ff; 
-  --glass-bg: rgba(14, 14, 18, 0.95);
+  /* Board-Wipe MTG Palette - Purple & Black */
+  --bg-color: #0a0a0f; 
+  --text-color: #e0d5ff;
+  --accent-color: #9d4edd; 
+  --secondary-accent: #c77dff; 
+  --tech-blue: #7209b7; 
+  --glass-bg: rgba(10, 10, 15, 0.95);
 }
 
 body {
@@ -2088,6 +2088,9 @@ button:focus-visible,
 
 .recruit-banner {
     margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
     background: linear-gradient(135deg, rgba(255, 51, 51, 0.05) 0%, rgba(255, 204, 0, 0.1) 50%, rgba(51, 102, 255, 0.05) 100%);
     border: 2px dashed var(--secondary-accent);
     padding: 30px;
@@ -2738,4 +2741,40 @@ button:focus-visible,
         width: 100%;
         justify-content: center;
     }
+}
+/* ===== CONTENT CENTERING ===== */
+
+.column {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.button-entrance {
+    display: inline-block;
+    margin: 10px auto;
+}
+
+section {
+    text-align: center;
+}
+
+section h2 {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+section p {
+    display: block;
+}
+
+.services-grid,
+.partners-grid,
+.friends-grid {
+    text-align: left;
+}
+
+.service-card,
+.partner-card,
+.friend-card {
+    text-align: left;
 }
