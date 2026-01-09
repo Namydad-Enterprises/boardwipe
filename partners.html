@@ -31,6 +31,20 @@
 
   <!-- Custom Theme Styles -->
   <link rel="stylesheet" href="css/custom-theme.css">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Board-Wipe n.e.V.",
+        "url": "https://board-wipe.com/",
+        "logo": "https://board-wipe.com/images/boardwipe-logo.png",
+        "sameAs": [
+            "https://www.facebook.com/boardwipe",
+            "https://twitter.com/boardwipe"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -170,9 +184,12 @@
             
             <div class="partners-grid friends-grid">
                 <div class="partner-card">
-                    <a class="partner-image-link" href="images/partners/cardmarket.png" data-title="Cardmarket" target="_blank" rel="noopener noreferrer">
-                        <img src="images/partners/cardmarket.png" alt="Cardmarket logo" loading="lazy">
-                    </a>
+                            <a class="partner-image-link" href="images/partners/cardmarket.png" data-title="Cardmarket" target="_blank" rel="noopener noreferrer">
+                                <picture>
+                                    <source type="image/webp" srcset="images/partners/cardmarket.webp">
+                                    <img src="images/partners/cardmarket.png" alt="Cardmarket logo" loading="lazy">
+                                </picture>
+                            </a>
                     <h3><a href="https://www.cardmarket.com/" target="_blank" rel="noopener noreferrer">Cardmarket</a></h3>
                     <span class="partner-role">// Online Marketplace</span>
                     <p>Europe's leading marketplace for trading card games — great for finding singles and bargains.</p>
@@ -188,7 +205,10 @@
             <div class="partners-grid">
                 <div class="partner-card">
                     <a class="partner-image-link" href="images/partners/cardclub.jpg" data-title="Card-Club (Hockenheim)" target="_blank" rel="noopener noreferrer">
-                        <img src="images/partners/cardclub.jpg" alt="Card-Club Hockenheim" loading="lazy">
+                        <picture>
+                            <source type="image/webp" srcset="images/partners/cardclub.webp">
+                            <img src="images/partners/cardclub.jpg" alt="Card-Club Hockenheim" loading="lazy">
+                        </picture>
                     </a>
                     <h3><a href="https://www.cardclub.de/" target="_blank" rel="noopener noreferrer">Card-Club (Hockenheim)</a></h3>
                     <p>Local game store we actively visit — great atmosphere and friendly staff.</p>
@@ -196,7 +216,10 @@
 
                 <div class="partner-card">
                     <a class="partner-image-link" href="images/partners/wizardswell.jpg" data-title="Wizard's Well (Mannheim)" target="_blank" rel="noopener noreferrer">
-                        <img src="images/partners/wizardswell.jpg" alt="Wizard's Well Mannheim" loading="lazy">
+                        <picture>
+                            <source type="image/webp" srcset="images/partners/wizardswell.webp">
+                            <img src="images/partners/wizardswell.jpg" alt="Wizard's Well Mannheim" loading="lazy">
+                        </picture>
                     </a>
                     <h3>Wizard's Well (Mannheim)</h3>
                     <p>Local store with a huge selection of quality items — a favourite stop for our members.</p>
@@ -222,7 +245,7 @@
         </div>
 
                 <div class="footer fadein" style="margin:5% 0px 35px 0px;">
-                        <p>&copy; 2025 Board-Wipe n.e.V. All rights reserved. | Magic: The Gathering is a trademark of Wizards of the Coast.</p>
+                        <p>&copy; 2026 Board-Wipe n.e.V. All rights reserved. | Magic: The Gathering is a trademark of Wizards of the Coast.</p>
                 </div>
             </div>
         </div>
@@ -231,7 +254,7 @@
 </body>
 
     <!-- Lightbox Modal -->
-    <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+    <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption" tabindex="-1" aria-hidden="true">
         <button class="lightbox-close" aria-label="Close">✕</button>
         <div style="text-align:center;">
             <img id="lightboxImage" src="" alt="">
@@ -245,39 +268,68 @@
             const modalImage = document.getElementById('lightboxImage');
             const modalCaption = document.getElementById('lightboxCaption');
             const closeBtn = modal.querySelector('.lightbox-close');
+            const focusableSelectors = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex]:not([tabindex="-1"]), [contenteditable]';
+            let previousActive = null;
 
-            function openLightbox(href, title, alt) {
+            function setAriaHiddenForMain(state) {
+                const main = document.getElementById('home');
+                const nav = document.querySelector('nav[role="navigation"]');
+                if (main) main.setAttribute('aria-hidden', state ? 'true' : 'false');
+                if (nav) nav.setAttribute('aria-hidden', state ? 'true' : 'false');
+            }
+
+            function trapTabKey(e) {
+                if (!modal.classList.contains('active')) return;
+                if (e.key !== 'Tab') return;
+                const focusables = Array.from(modal.querySelectorAll(focusableSelectors)).filter(el => el.offsetParent !== null);
+                if (focusables.length === 0) { e.preventDefault(); return; }
+                const first = focusables[0];
+                const last = focusables[focusables.length - 1];
+                if (e.shiftKey) {
+                    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+                } else {
+                    if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+                }
+            }
+
+            function openLightbox(href, title, alt, trigger) {
+                previousActive = trigger || document.activeElement;
                 modalImage.src = href;
                 modalImage.alt = alt || title || 'Partner image';
                 modalCaption.textContent = title || alt || '';
                 modal.classList.add('active');
+                modal.setAttribute('aria-hidden', 'false');
+                setAriaHiddenForMain(true);
                 document.body.style.overflow = 'hidden';
+                // focus the close button so keyboard users are inside the modal
                 closeBtn.focus();
+                document.addEventListener('keydown', trapTabKey);
             }
 
             function closeLightbox() {
                 modal.classList.remove('active');
+                modal.setAttribute('aria-hidden', 'true');
+                setAriaHiddenForMain(false);
+                document.body.style.overflow = '';
                 modalImage.src = '';
                 modalCaption.textContent = '';
-                document.body.style.overflow = '';
+                document.removeEventListener('keydown', trapTabKey);
+                if (previousActive && previousActive.focus) previousActive.focus();
+                previousActive = null;
             }
 
             document.querySelectorAll('a.partner-image-link').forEach(a => {
                 a.addEventListener('click', function(e){
                     e.preventDefault();
-                    openLightbox(this.href, this.dataset.title, this.querySelector('img')?.alt);
+                    openLightbox(this.href, this.dataset.title, this.querySelector('img')?.alt, this);
                 });
             });
 
             closeBtn.addEventListener('click', closeLightbox);
 
-            modal.addEventListener('click', function(e){
-                if (e.target === modal) closeLightbox();
-            });
+            modal.addEventListener('click', function(e){ if (e.target === modal) closeLightbox(); });
 
-            document.addEventListener('keydown', function(e){
-                if (e.key === 'Escape' && modal.classList.contains('active')) closeLightbox();
-            });
+            document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && modal.classList.contains('active')) closeLightbox(); });
         })();
     </script>
 </html>

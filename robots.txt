@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Sitemap: https://board-wipe.com/sitemap.xml
+
+# Crawl-delay can be added if necessary for certain bots
+# Crawl-delay: 10
