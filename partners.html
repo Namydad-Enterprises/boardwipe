@@ -38,7 +38,7 @@
     <a href="#partners-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
       <div class="menu-toggle" id="mobile-menu">
         <i class="fas fa-bars"></i>
       </div>
@@ -134,7 +134,7 @@
       <div id="object12" class="object12"></div>
     </div>
 
-  <div class="container" id="home">
+    <main class="container" id="home" role="main">
     <div class="row">
       <div class="column" style="margin-top: 5%">
         
@@ -170,8 +170,10 @@
             
             <div class="partners-grid friends-grid">
                 <div class="partner-card">
-                    <img src="https://images.ctfassets.net/pjhgqryi6myh/6lTcwnrNUcH4zgrbAr9Ckb/1b34ee6e432b9b98f9a6636809f42ef4/CMLogoBlue1_-_VerticalTagline.png" alt="Cardmarket logo" loading="lazy">
-                    <h3>Cardmarket</h3>
+                    <a class="partner-image-link" href="images/partners/cardmarket.png" data-title="Cardmarket" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/cardmarket.png" alt="Cardmarket logo" loading="lazy">
+                    </a>
+                    <h3><a href="https://www.cardmarket.com/" target="_blank" rel="noopener noreferrer">Cardmarket</a></h3>
                     <span class="partner-role">// Online Marketplace</span>
                     <p>Europe's leading marketplace for trading card games — great for finding singles and bargains.</p>
                 </div>
@@ -185,13 +187,17 @@
             
             <div class="partners-grid">
                 <div class="partner-card">
-                    <img src="https://www.cardclub.de/cdn/shop/files/IMG_4274.jpg?v=1733229593" alt="Card-Club Hockenheim" loading="lazy">
-                    <h3>Card-Club (Hockenheim)</h3>
+                    <a class="partner-image-link" href="images/partners/cardclub.jpg" data-title="Card-Club (Hockenheim)" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/cardclub.jpg" alt="Card-Club Hockenheim" loading="lazy">
+                    </a>
+                    <h3><a href="https://www.cardclub.de/" target="_blank" rel="noopener noreferrer">Card-Club (Hockenheim)</a></h3>
                     <p>Local game store we actively visit — great atmosphere and friendly staff.</p>
                 </div>
 
                 <div class="partner-card">
-                    <img src="https://lh3.googleusercontent.com/proxy/cXP4Wi711wPtILMCBhJyXfzCnZfbY28WfCXPijFq2_klIK7VPq2_iOKdC9nJxi0eBN1esy_i1zBI1uDkYQ" alt="Wizard's Well Mannheim" loading="lazy">
+                    <a class="partner-image-link" href="images/partners/wizardswell.jpg" data-title="Wizard's Well (Mannheim)" target="_blank" rel="noopener noreferrer">
+                        <img src="images/partners/wizardswell.jpg" alt="Wizard's Well Mannheim" loading="lazy">
+                    </a>
                     <h3>Wizard's Well (Mannheim)</h3>
                     <p>Local store with a huge selection of quality items — a favourite stop for our members.</p>
                 </div>
@@ -215,11 +221,65 @@
             </div>
         </div>
 
-        <div class="footer fadein" style="margin:5% 0px 35px 0px;">
-            <p>&copy; 2025 Board-Wipe n.e.V. All rights reserved. | Magic: The Gathering is a trademark of Wizards of the Coast.</p>
+                <div class="footer fadein" style="margin:5% 0px 35px 0px;">
+                        <p>&copy; 2025 Board-Wipe n.e.V. All rights reserved. | Magic: The Gathering is a trademark of Wizards of the Coast.</p>
+                </div>
+            </div>
         </div>
-      </div>
+    </main>
+
+</body>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+        <button class="lightbox-close" aria-label="Close">✕</button>
+        <div style="text-align:center;">
+            <img id="lightboxImage" src="" alt="">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
     </div>
-  </div>
+
+    <script>
+        (function(){
+            const modal = document.getElementById('lightboxModal');
+            const modalImage = document.getElementById('lightboxImage');
+            const modalCaption = document.getElementById('lightboxCaption');
+            const closeBtn = modal.querySelector('.lightbox-close');
+
+            function openLightbox(href, title, alt) {
+                modalImage.src = href;
+                modalImage.alt = alt || title || 'Partner image';
+                modalCaption.textContent = title || alt || '';
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            }
+
+            function closeLightbox() {
+                modal.classList.remove('active');
+                modalImage.src = '';
+                modalCaption.textContent = '';
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('a.partner-image-link').forEach(a => {
+                a.addEventListener('click', function(e){
+                    e.preventDefault();
+                    openLightbox(this.href, this.dataset.title, this.querySelector('img')?.alt);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+
+            modal.addEventListener('click', function(e){
+                if (e.target === modal) closeLightbox();
+            });
+
+            document.addEventListener('keydown', function(e){
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeLightbox();
+            });
+        })();
+    </script>
+</html>
 </body>
 </html>

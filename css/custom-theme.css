@@ -600,6 +600,22 @@ h2::after {
     align-items: stretch;
 }
 
+/* Simple lightbox modal for partner images */
+.lightbox-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    padding: 20px;
+}
+.lightbox-modal.active { display: flex; }
+.lightbox-modal img { max-width: 90%; max-height: 80%; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+.lightbox-caption { color: #fff; margin-top: 12px; text-align: center; font-size: 0.95rem; }
+.lightbox-close { position: absolute; top: 18px; right: 22px; color: #fff; background: rgba(0,0,0,0.4); border: none; padding: 8px 10px; border-radius: 4px; cursor: pointer; }
+
 /* Section Styling */
 section {
   padding: 100px 20px;
