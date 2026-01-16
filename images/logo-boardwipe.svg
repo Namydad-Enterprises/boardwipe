@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <!-- Fiery gradient for main text -->
+    <linearGradient id="fireGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="30%" style="stop-color:#FFA500"/>
+      <stop offset="70%" style="stop-color:#FF4500"/>
+      <stop offset="100%" style="stop-color:#8B0000"/>
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Drop shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <!-- Decorative symbols - Card suit inspired -->
+  <!-- Spade (top left) -->
+  <g transform="translate(45, 35) scale(0.7)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="22" fill="#2d5a27" opacity="0.3"/>
+    <path d="M0,-15 C-8,-8 -12,0 -12,6 C-12,12 -6,16 0,10 C6,16 12,12 12,6 C12,0 8,-8 0,-15 Z M0,10 L0,18 M-4,18 L4,18" fill="#1a3d16" stroke="#1a3d16" stroke-width="2"/>
+  </g>
+  
+  <!-- Diamond (top right) -->
+  <g transform="translate(355, 35) scale(0.7)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="22" fill="#8B0000" opacity="0.3"/>
+    <path d="M0,-16 L12,0 L0,16 L-12,0 Z" fill="#cc2200" stroke="#660000" stroke-width="1"/>
+  </g>
+  
+  <!-- D20 die (bottom left) -->
+  <g transform="translate(50, 165) scale(0.6)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="24" fill="#4a90d9" opacity="0.3"/>
+    <polygon points="0,-18 16,9 -16,9" fill="none" stroke="#1a4a7a" stroke-width="2.5"/>
+    <polygon points="0,18 16,9 -16,9" fill="none" stroke="#1a4a7a" stroke-width="2.5" transform="rotate(180)"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1a4a7a" text-anchor="middle">20</text>
+  </g>
+  
+  <!-- Skull (bottom right) - like the black mana symbol -->
+  <g transform="translate(350, 165) scale(0.6)" filter="url(#glow)">
+    <circle cx="0" cy="0" r="24" fill="#2a2a2a" opacity="0.4"/>
+    <ellipse cx="0" cy="-3" rx="12" ry="14" fill="#1a1a1a"/>
+    <ellipse cx="-5" cy="-6" rx="3" ry="4" fill="#2a2a2a"/>
+    <ellipse cx="5" cy="-6" rx="3" ry="4" fill="#2a2a2a"/>
+    <path d="M-3,4 L0,2 L3,4 L0,8 Z" fill="#2a2a2a"/>
+    <rect x="-8" y="10" width="4" height="6" rx="1" fill="#1a1a1a"/>
+    <rect x="-2" y="10" width="4" height="6" rx="1" fill="#1a1a1a"/>
+    <rect x="4" y="10" width="4" height="6" rx="1" fill="#1a1a1a"/>
+  </g>
+  
+  <!-- Main text: BOARD -->
+  <text x="200" y="85" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" font-style="italic" text-anchor="middle" filter="url(#shadow)">
+    <tspan fill="#1a0a00" stroke="#1a0a00" stroke-width="6">BOARD</tspan>
+  </text>
+  <text x="200" y="85" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" font-style="italic" text-anchor="middle">
+    <tspan fill="url(#fireGradient)" stroke="#8B0000" stroke-width="2">BOARD</tspan>
+  </text>
+  
+  <!-- Subtitle text: WIPE -->
+  <text x="200" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="bold" font-style="italic" text-anchor="middle" filter="url(#shadow)">
+    <tspan fill="#1a0a00" stroke="#1a0a00" stroke-width="4">the Wipe</tspan>
+  </text>
+  <text x="200" y="140" font-family="Georgia, 'Times New Roman', serif" font-size="36" font-weight="bold" font-style="italic" text-anchor="middle">
+    <tspan fill="#f5f5dc" stroke="#8B4513" stroke-width="1">the Wipe</tspan>
+  </text>
+</svg>

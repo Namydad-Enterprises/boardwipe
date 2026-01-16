@@ -365,12 +365,36 @@ h2::after {
   background: var(--glass-bg);
   border-bottom: 2px solid var(--accent-color);
   z-index: 1000;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
   min-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+}
+
+/* Navbar Brand Logo */
+.navbar .brand {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 18px;
+  flex-shrink: 0;
+}
+
+.navbar .brand img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(157, 78, 221, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.navbar .brand img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 14px rgba(157, 78, 221, 0.7);
 }
 
 .navbar ul {
@@ -431,7 +455,12 @@ h2::after {
 @media (max-width: 768px) {
   .navbar {
     min-height: 60px;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar .brand img {
+    width: 42px;
+    height: 42px;
   }
 
   .navbar ul {
@@ -661,7 +690,9 @@ section {
 .rounded-avatar {
     border: 3px solid var(--secondary-accent);
     box-shadow: 5px 5px 0px var(--accent-color); /* Hard shadow for anime look */
-    border-radius: 50%;
+    border-radius: 8px; /* Slight rounding for card-style logo */
+    object-fit: contain;
+    background: transparent;
 }
 
 /* Button Overrides for Theme */
